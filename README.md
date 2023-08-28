@@ -352,4 +352,34 @@ Netty + Nacos + Disruptor + grafana + prometheus。考虑到轻量和功能，�
    }
    ```
    这里通过添加两个过滤器（利用prometheus收集数据）实现对请求流量的监控，并且最后通过定制化面板在grafana展示出来。
-   
+ + 用户的权限认证
+   ```
+   {
+    "rules": [
+        {
+            "id": "2",
+            "name": "user-private",
+            "protocol": "http",
+            "serviceId": "backend-user-server",
+            "prefix": "/user/private",
+            "paths": [
+                "/user/private/user-info"
+            ],
+            "filterConfigs": [
+                {
+                    "id": "load_balance_filter",
+                    "config": {
+                        "load_balance": "RoundRobin"
+                    }
+                },
+                {
+                    "id": "user_auth_filter"
+                },
+                {
+                    "id": "router_filter"
+                }
+            ]
+        }
+     ]
+   }
+   ```
