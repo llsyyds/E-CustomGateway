@@ -1,0 +1,1868 @@
+2023-08-17 00:00:00.726 service list size 2 
+2023-08-17 00:00:10.773 service list size 2 
+2023-08-17 00:00:20.784 service list size 2 
+2023-08-17 00:00:30.793 service list size 2 
+2023-08-17 00:00:40.817 service list size 2 
+2023-08-17 00:00:50.826 service list size 2 
+2023-08-17 00:01:00.835 service list size 2 
+2023-08-17 00:01:10.855 service list size 2 
+2023-08-17 00:01:20.865 service list size 2 
+2023-08-17 00:01:30.878 service list size 2 
+2023-08-17 00:01:40.888 service list size 2 
+2023-08-17 00:01:50.900 service list size 2 
+2023-08-17 00:02:00.916 service list size 2 
+2023-08-17 00:02:10.926 service list size 2 
+2023-08-17 00:02:20.935 service list size 2 
+2023-08-17 00:02:30.942 service list size 2 
+2023-08-17 00:02:40.957 service list size 2 
+2023-08-17 00:02:50.968 service list size 2 
+2023-08-17 00:03:00.977 service list size 2 
+2023-08-17 00:03:10.993 service list size 2 
+2023-08-17 00:03:21.007 service list size 2 
+2023-08-17 00:03:31.019 service list size 2 
+2023-08-17 00:03:41.048 service list size 2 
+2023-08-17 00:22:36.054 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 00:22:36.061 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 00:22:36.061 [NotifyCenter] Start destroying Publisher 
+2023-08-17 00:22:36.062 [NotifyCenter] Destruction of the end 
+2023-08-17 00:29:57.470 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 00:29:57.486 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 00:30:00.346 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 00:30:00.747 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 00:30:00.771 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 00:30:00.771 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 00:30:02.173 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x007a7c8b]' 
+2023-08-17 00:30:02.196 server startup on port 5555 
+2023-08-17 00:30:02.205 api gateway started! 
+2023-08-17 00:30:02.236 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 00:30:02.236 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 00:30:02.266 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 00:30:02.266 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 00:30:02.424 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 00:30:02.424 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 00:30:04.229 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-17 00:30:04.261 service list size 1 
+2023-08-17 00:30:04.393 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692203403969, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 00:30:04.396 subscribe api-gateway dev 
+2023-08-17 00:30:14.422 service list size 2 
+2023-08-17 00:30:14.438 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692203410423, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692203407570, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 00:30:14.438 subscribe backend-http-server dev 
+2023-08-17 00:30:22.670 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 00:30:22.671 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 00:30:22.678 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@39c5e16 
+2023-08-17 00:30:24.459 service list size 2 
+2023-08-17 00:30:34.472 service list size 2 
+2023-08-17 00:30:44.482 service list size 2 
+2023-08-17 00:30:54.493 service list size 2 
+2023-08-17 00:31:04.509 service list size 2 
+2023-08-17 00:31:14.518 service list size 2 
+2023-08-17 00:31:16.596 [NotifyCenter] Start destroying Publisher 
+2023-08-17 00:31:16.596 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 00:31:16.597 [NotifyCenter] Destruction of the end 
+2023-08-17 00:31:16.597 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 02:04:13.106 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:04:13.106 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:04:16.116 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 02:04:16.348 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 02:04:16.364 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 02:04:16.364 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 02:04:17.258 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xb7eb1d7d]' 
+2023-08-17 02:04:17.274 server startup on port 5555 
+2023-08-17 02:04:17.274 api gateway started! 
+2023-08-17 02:04:17.291 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:04:17.291 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:04:17.307 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:04:17.307 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:04:17.468 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:04:17.468 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:05:29.483 [NotifyCenter] Start destroying Publisher 
+2023-08-17 02:05:29.483 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 02:05:29.484 [NotifyCenter] Destruction of the end 
+2023-08-17 02:05:29.484 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 02:05:36.084 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:05:36.084 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:05:40.612 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 02:05:41.024 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 02:05:41.041 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 02:05:41.046 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 02:05:42.451 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xd9cbb28f]' 
+2023-08-17 02:05:42.488 server startup on port 5555 
+2023-08-17 02:05:42.490 api gateway started! 
+2023-08-17 02:05:42.539 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:05:42.540 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:05:42.574 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:05:42.575 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:05:42.823 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:05:42.825 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:05:44.611 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-17 02:05:44.654 service list size 2 
+2023-08-17 02:05:44.845 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692209138334, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:05:44.847 subscribe backend-http-server dev 
+2023-08-17 02:05:44.881 refresh service and instance: api-gateway [] 
+2023-08-17 02:05:44.882 subscribe api-gateway dev 
+2023-08-17 02:05:47.076 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692209144298, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 02:05:50.059 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692209149401, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692209138334, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:05:54.910 service list size 2 
+2023-08-17 02:06:00.303 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 02:06:00.304 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 02:06:00.310 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@58249a6d 
+2023-08-17 02:06:04.926 service list size 2 
+2023-08-17 02:06:14.938 service list size 2 
+2023-08-17 02:06:24.950 service list size 2 
+2023-08-17 02:06:34.962 service list size 2 
+2023-08-17 02:06:44.974 service list size 2 
+2023-08-17 02:06:54.988 service list size 2 
+2023-08-17 02:07:05.003 service list size 2 
+2023-08-17 02:07:15.015 service list size 2 
+2023-08-17 02:07:19.000 [NotifyCenter] Start destroying Publisher 
+2023-08-17 02:07:19.000 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 02:07:19.001 [NotifyCenter] Destruction of the end 
+2023-08-17 02:07:19.002 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 02:07:35.628 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:07:35.632 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:07:39.853 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 02:07:40.343 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 02:07:40.506 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 02:07:40.513 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 02:07:41.588 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xc1141899]' 
+2023-08-17 02:07:41.632 server startup on port 5555 
+2023-08-17 02:07:41.639 api gateway started! 
+2023-08-17 02:07:41.685 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:07:41.686 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:07:41.723 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:07:41.724 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:07:41.912 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:07:41.912 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:07:42.793 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-17 02:07:42.828 service list size 2 
+2023-08-17 02:07:42.948 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692209149401, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692209138334, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:07:42.952 subscribe backend-http-server dev 
+2023-08-17 02:07:42.985 refresh service and instance: api-gateway [] 
+2023-08-17 02:07:42.986 subscribe api-gateway dev 
+2023-08-17 02:07:43.284 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692209262550, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 02:07:53.012 service list size 2 
+2023-08-17 02:08:03.029 service list size 2 
+2023-08-17 02:08:10.320 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 02:08:10.322 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 02:08:10.340 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@36512b5d 
+2023-08-17 02:08:13.047 service list size 2 
+2023-08-17 02:13:55.409 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58672, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:22:04.040 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58832, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:22:39.574 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58847, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:25:21.649 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58864, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:26:59.161 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58884, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:27:49.336 refresh service and instance: backend-http-server:1.0.0 [] 
+2023-08-17 02:28:11.815 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692210491097, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:28:17.642 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692210496698, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692210491097, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:29:13.100 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692210496698, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:30:24.215 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692210496698, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692210491097, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:30:28.307 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:58998, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:31:49.871 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:59034, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:40:03.996 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:59161, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:42:56.127 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:59202, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:45:09.201 NETTY SERVER PIPLINE: remoteAddr： 127.0.0.1:59293, exceptionCaught java.net.SocketException: Connection reset 
+2023-08-17 02:45:09.443 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 02:45:09.448 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 02:45:09.449 [NotifyCenter] Start destroying Publisher 
+2023-08-17 02:45:09.451 [NotifyCenter] Destruction of the end 
+2023-08-17 02:45:25.179 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:45:25.182 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:45:28.448 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 02:45:28.819 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 02:45:28.859 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 02:45:28.866 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 02:45:29.635 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xaaf26a2b]' 
+2023-08-17 02:45:29.660 server startup on port 5555 
+2023-08-17 02:45:29.665 api gateway started! 
+2023-08-17 02:45:29.697 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:45:29.697 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:45:29.727 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:45:29.727 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:45:29.878 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:45:29.878 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:45:30.547 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-17 02:45:30.565 service list size 2 
+2023-08-17 02:45:30.630 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692210496698, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692210491097, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:45:30.631 subscribe backend-http-server dev 
+2023-08-17 02:45:30.653 refresh service and instance: api-gateway [] 
+2023-08-17 02:45:30.654 subscribe api-gateway dev 
+2023-08-17 02:45:31.013 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692211530381, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 02:45:37.913 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 02:45:37.914 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 02:45:37.927 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@730e526d 
+2023-08-17 02:45:40.672 service list size 2 
+2023-08-17 02:45:50.682 service list size 1 
+2023-08-17 02:46:00.693 service list size 1 
+2023-08-17 02:46:10.704 service list size 1 
+2023-08-17 02:46:20.716 service list size 1 
+2023-08-17 02:46:30.728 service list size 1 
+2023-08-17 02:46:40.740 service list size 1 
+2023-08-17 02:46:50.754 service list size 1 
+2023-08-17 02:47:00.767 service list size 1 
+2023-08-17 02:47:10.778 service list size 1 
+2023-08-17 02:47:20.583 refresh service and instance: backend-http-server:1.0.0 [] 
+2023-08-17 02:47:20.793 service list size 1 
+2023-08-17 02:47:30.838 service list size 1 
+2023-08-17 02:47:40.874 service list size 1 
+2023-08-17 02:47:43.247 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692211662262, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:47:50.897 service list size 1 
+2023-08-17 02:47:51.486 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692211662262, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692211670904, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:48:00.910 service list size 1 
+2023-08-17 02:48:10.922 service list size 1 
+2023-08-17 02:48:21.564 service list size 1 
+2023-08-17 02:48:31.578 service list size 1 
+2023-08-17 02:48:35.911 [NotifyCenter] Start destroying Publisher 
+2023-08-17 02:48:43.313 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:48:43.316 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:48:45.846 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":5000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 02:48:46.070 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 02:48:46.087 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 02:48:46.090 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 02:48:46.880 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xf1e9f683]' 
+2023-08-17 02:48:46.900 server startup on port 5555 
+2023-08-17 02:48:46.901 api gateway started! 
+2023-08-17 02:48:46.918 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:48:46.918 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:48:46.937 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:48:46.938 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:48:47.088 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 02:48:47.088 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 02:48:47.726 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-17 02:48:47.737 service list size 2 
+2023-08-17 02:48:47.784 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692211662262, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692211670904, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 02:48:47.785 subscribe backend-http-server dev 
+2023-08-17 02:48:47.808 refresh service and instance: api-gateway [] 
+2023-08-17 02:48:47.809 subscribe api-gateway dev 
+2023-08-17 02:48:48.285 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692211727620, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 02:48:57.834 service list size 2 
+2023-08-17 02:49:02.728 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 02:49:02.729 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 02:49:02.742 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@51750d9a 
+2023-08-17 02:49:07.844 service list size 2 
+2023-08-17 02:49:17.852 service list size 2 
+2023-08-17 02:49:27.860 service list size 2 
+2023-08-17 02:49:37.868 service list size 2 
+2023-08-17 02:49:47.877 service list size 2 
+2023-08-17 02:49:57.883 service list size 2 
+2023-08-17 02:50:07.892 service list size 2 
+2023-08-17 02:50:14.159 [NotifyCenter] Start destroying Publisher 
+2023-08-17 02:50:14.159 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 02:50:14.159 [NotifyCenter] Destruction of the end 
+2023-08-17 02:50:14.160 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 09:49:36.506 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:49:36.510 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:49:38.873 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":1000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 09:49:39.094 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 09:49:39.108 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 09:49:39.112 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 09:49:40.177 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xe2fb2436]' 
+2023-08-17 09:49:40.191 server startup on port 5555 
+2023-08-17 09:49:40.194 api gateway started! 
+2023-08-17 09:49:40.210 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:49:40.211 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:49:40.228 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:49:40.228 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:49:40.371 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:49:40.372 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:50:36.210 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 09:50:36.210 [NotifyCenter] Start destroying Publisher 
+2023-08-17 09:50:36.217 [NotifyCenter] Destruction of the end 
+2023-08-17 09:50:50.682 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:50:50.685 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:50:54.546 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":1000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 09:50:54.791 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 09:50:54.804 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 09:50:54.807 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 09:50:55.830 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x0e4bffa0]' 
+2023-08-17 09:50:55.852 server startup on port 5555 
+2023-08-17 09:50:55.855 api gateway started! 
+2023-08-17 09:50:55.877 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:50:55.878 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:50:55.898 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:50:55.898 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:50:56.049 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 09:50:56.050 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 09:50:57.086 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 09:50:57.112 service list size 2 
+2023-08-17 09:50:57.271 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692237050726, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 09:50:57.272 subscribe backend-http-server dev 
+2023-08-17 09:50:57.303 refresh service and instance: api-gateway [] 
+2023-08-17 09:50:57.304 subscribe api-gateway dev 
+2023-08-17 09:51:01.166 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692237056966, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 09:51:05.175 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692237050726, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692237064592, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 09:51:07.328 service list size 2 
+2023-08-17 09:51:17.342 service list size 2 
+2023-08-17 09:51:27.351 service list size 2 
+2023-08-17 09:51:37.260 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 09:51:37.261 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 09:51:37.271 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@140c28d5 
+2023-08-17 09:51:37.378 service list size 2 
+2023-08-17 09:51:47.421 service list size 2 
+2023-08-17 09:51:57.436 service list size 2 
+2023-08-17 09:52:05.077 执行过滤器发生异常,异常信息：您的请求过于频繁,请稍后重试 
+2023-08-17 09:52:05.077 process unkown error 
+java.lang.RuntimeException: 您的请求过于频繁,请稍后重试
+	at com.lls.core.filter.flowCtl.FlowCtlByPathRule.doFlowCtlFilter(FlowCtlByPathRule.java:76) ~[classes/:?]
+	at com.lls.core.filter.flowCtl.FlowCtlFilter.doFilter(FlowCtlFilter.java:42) ~[classes/:?]
+	at com.lls.core.filter.GatewayFilterChain.doFilter(GatewayFilterChain.java:35) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:32) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-17 09:52:07.453 service list size 2 
+2023-08-17 09:52:17.467 service list size 2 
+2023-08-17 09:52:27.477 service list size 2 
+2023-08-17 09:52:37.487 service list size 2 
+2023-08-17 09:52:47.497 service list size 2 
+2023-08-17 09:52:57.509 service list size 2 
+2023-08-17 09:53:07.522 service list size 2 
+2023-08-17 09:53:17.534 service list size 2 
+2023-08-17 09:53:27.251 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "timeoutInMilliseconds":1000,
+                "threadCoreSize":2,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 09:53:27.553 service list size 2 
+2023-08-17 09:53:37.565 service list size 2 
+2023-08-17 09:53:47.577 service list size 2 
+2023-08-17 09:53:57.586 service list size 2 
+2023-08-17 09:54:07.595 service list size 2 
+2023-08-17 09:54:17.603 service list size 2 
+2023-08-17 09:54:27.613 service list size 2 
+2023-08-17 09:54:37.621 service list size 2 
+2023-08-17 09:54:47.630 service list size 2 
+2023-08-17 09:54:57.639 service list size 2 
+2023-08-17 09:55:07.649 service list size 2 
+2023-08-17 09:55:15.000 [NotifyCenter] Start destroying Publisher 
+2023-08-17 09:55:15.001 [NotifyCenter] Destruction of the end 
+2023-08-17 09:55:15.001 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 09:55:15.003 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 10:30:08.642 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:30:08.644 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:30:11.285 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 10:30:11.498 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 10:30:11.515 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 10:30:11.517 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 10:30:13.404 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x8667d6a0]' 
+2023-08-17 10:30:13.480 server startup on port 5555 
+2023-08-17 10:30:13.483 api gateway started! 
+2023-08-17 10:30:13.539 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:30:13.540 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:30:13.585 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:30:13.586 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:30:13.831 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:30:13.832 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:30:16.406 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 10:30:16.427 service list size 1 
+2023-08-17 10:30:16.522 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692239416174, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 10:30:16.526 subscribe api-gateway dev 
+2023-08-17 10:30:26.543 service list size 2 
+2023-08-17 10:30:26.562 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692239419299, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692239420924, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 10:30:26.563 subscribe backend-http-server dev 
+2023-08-17 10:30:36.574 service list size 2 
+2023-08-17 10:30:46.581 service list size 2 
+2023-08-17 10:30:56.588 service list size 2 
+2023-08-17 10:31:06.596 service list size 2 
+2023-08-17 10:31:16.604 service list size 2 
+2023-08-17 10:31:26.613 service list size 2 
+2023-08-17 10:31:36.621 service list size 2 
+2023-08-17 10:31:46.627 service list size 2 
+2023-08-17 10:31:56.639 service list size 2 
+2023-08-17 10:32:06.659 service list size 2 
+2023-08-17 10:32:16.665 service list size 2 
+2023-08-17 10:32:26.678 service list size 2 
+2023-08-17 10:32:36.686 service list size 2 
+2023-08-17 10:32:46.694 service list size 2 
+2023-08-17 10:32:56.702 service list size 2 
+2023-08-17 10:33:06.719 service list size 2 
+2023-08-17 10:33:16.731 service list size 2 
+2023-08-17 10:33:26.738 service list size 2 
+2023-08-17 10:33:36.746 service list size 2 
+2023-08-17 10:33:46.766 service list size 2 
+2023-08-17 10:33:56.788 service list size 2 
+2023-08-17 10:34:02.669 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 10:34:02.669 [NotifyCenter] Start destroying Publisher 
+2023-08-17 10:34:02.670 [NotifyCenter] Destruction of the end 
+2023-08-17 10:34:02.671 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 10:34:23.711 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:34:23.713 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:34:28.009 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 10:34:28.457 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 10:34:28.499 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 10:34:28.507 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 10:34:29.783 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x2df36cf0]' 
+2023-08-17 10:34:29.813 server startup on port 5555 
+2023-08-17 10:34:29.819 api gateway started! 
+2023-08-17 10:34:29.862 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:34:29.863 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:34:29.890 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:34:29.890 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:34:30.043 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:34:30.044 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:34:30.833 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 10:34:30.850 service list size 2 
+2023-08-17 10:34:30.918 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692239419299, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692239420924, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 10:34:30.920 subscribe backend-http-server dev 
+2023-08-17 10:34:30.940 refresh service and instance: api-gateway [] 
+2023-08-17 10:34:30.941 subscribe api-gateway dev 
+2023-08-17 10:34:31.329 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692239670672, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 10:34:40.957 service list size 2 
+2023-08-17 10:34:50.979 service list size 2 
+2023-08-17 10:35:00.988 service list size 2 
+2023-08-17 10:35:10.998 service list size 2 
+2023-08-17 10:35:21.008 service list size 2 
+2023-08-17 10:35:31.026 service list size 2 
+2023-08-17 10:35:41.037 service list size 2 
+2023-08-17 10:35:51.049 service list size 2 
+2023-08-17 10:35:56.232 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 10:35:56.233 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 10:35:56.244 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@75a56983 
+2023-08-17 10:36:01.061 service list size 2 
+2023-08-17 10:36:11.075 service list size 2 
+2023-08-17 10:36:21.086 service list size 2 
+2023-08-17 10:36:31.095 service list size 2 
+2023-08-17 10:36:41.105 service list size 2 
+2023-08-17 10:36:51.114 service list size 2 
+2023-08-17 10:37:01.126 service list size 2 
+2023-08-17 10:37:11.138 service list size 2 
+2023-08-17 10:37:21.152 service list size 2 
+2023-08-17 10:37:31.165 service list size 2 
+2023-08-17 10:37:41.174 service list size 2 
+2023-08-17 10:37:51.182 service list size 2 
+2023-08-17 10:38:01.190 service list size 2 
+2023-08-17 10:38:11.198 service list size 2 
+2023-08-17 10:38:21.207 service list size 2 
+2023-08-17 10:38:31.216 service list size 2 
+2023-08-17 10:38:41.225 service list size 2 
+2023-08-17 10:38:51.236 service list size 2 
+2023-08-17 10:39:01.246 service list size 2 
+2023-08-17 10:39:11.257 service list size 2 
+2023-08-17 10:39:13.309 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 10:39:21.324 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:39:21.327 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:39:24.689 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间"
+            }]
+        }
+    ]
+} 
+2023-08-17 10:39:24.927 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 10:39:24.936 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 10:39:24.939 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 10:39:25.785 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xe683bc3e]' 
+2023-08-17 10:39:25.802 server startup on port 5555 
+2023-08-17 10:39:25.803 api gateway started! 
+2023-08-17 10:39:25.822 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:39:25.823 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:39:25.841 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:39:25.842 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:39:25.982 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 10:39:25.982 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 10:39:26.787 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 10:39:26.803 service list size 2 
+2023-08-17 10:39:26.861 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692239419299, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692239420924, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 10:39:26.862 subscribe backend-http-server dev 
+2023-08-17 10:39:26.888 refresh service and instance: api-gateway [] 
+2023-08-17 10:39:26.889 subscribe api-gateway dev 
+2023-08-17 10:39:27.361 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692239966682, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 10:39:36.909 service list size 2 
+2023-08-17 10:39:45.138 No URLs will be polled as dynamic configuration sources. 
+2023-08-17 10:39:45.139 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2023-08-17 10:39:45.148 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@2ecb716e 
+2023-08-17 10:39:46.921 service list size 2 
+2023-08-17 10:39:56.933 service list size 2 
+2023-08-17 10:40:06.945 service list size 2 
+2023-08-17 10:40:16.957 service list size 2 
+2023-08-17 10:40:26.968 service list size 2 
+2023-08-17 10:40:36.978 service list size 2 
+2023-08-17 10:40:46.988 service list size 2 
+2023-08-17 10:40:56.999 service list size 2 
+2023-08-17 10:41:07.011 service list size 2 
+2023-08-17 10:41:17.019 service list size 2 
+2023-08-17 10:41:27.031 service list size 2 
+2023-08-17 10:41:37.042 service list size 2 
+2023-08-17 10:41:47.051 service list size 2 
+2023-08-17 10:41:57.067 service list size 2 
+2023-08-17 10:42:07.078 service list size 2 
+2023-08-17 10:42:17.088 service list size 2 
+2023-08-17 10:42:27.097 service list size 2 
+2023-08-17 10:42:37.107 service list size 2 
+2023-08-17 10:42:47.119 service list size 2 
+2023-08-17 10:42:57.128 service list size 2 
+2023-08-17 10:43:07.137 service list size 2 
+2023-08-17 10:43:17.149 service list size 2 
+2023-08-17 10:43:27.162 service list size 2 
+2023-08-17 10:43:37.175 service list size 2 
+2023-08-17 10:43:47.187 service list size 2 
+2023-08-17 10:43:57.199 service list size 2 
+2023-08-17 10:44:07.211 service list size 2 
+2023-08-17 10:44:17.220 service list size 2 
+2023-08-17 10:44:27.230 service list size 2 
+2023-08-17 10:44:37.239 service list size 2 
+2023-08-17 10:44:47.249 service list size 2 
+2023-08-17 10:44:57.262 service list size 2 
+2023-08-17 10:45:07.273 service list size 2 
+2023-08-17 10:45:17.282 service list size 2 
+2023-08-17 10:45:27.293 service list size 2 
+2023-08-17 10:45:37.303 service list size 2 
+2023-08-17 10:45:47.313 service list size 2 
+2023-08-17 10:45:57.323 service list size 2 
+2023-08-17 10:46:07.335 service list size 2 
+2023-08-17 10:46:17.347 service list size 2 
+2023-08-17 10:46:27.357 service list size 2 
+2023-08-17 10:46:37.369 service list size 2 
+2023-08-17 10:46:47.378 service list size 2 
+2023-08-17 10:46:57.389 service list size 2 
+2023-08-17 10:47:07.415 service list size 2 
+2023-08-17 10:47:17.448 service list size 2 
+2023-08-17 10:47:27.459 service list size 2 
+2023-08-17 10:47:37.469 service list size 2 
+2023-08-17 10:47:47.482 service list size 2 
+2023-08-17 10:47:57.491 service list size 2 
+2023-08-17 10:48:07.531 service list size 2 
+2023-08-17 10:48:17.544 service list size 2 
+2023-08-17 10:48:27.553 service list size 2 
+2023-08-17 10:48:37.562 service list size 2 
+2023-08-17 10:48:47.598 service list size 2 
+2023-08-17 10:48:57.643 service list size 2 
+2023-08-17 10:49:07.654 service list size 2 
+2023-08-17 10:49:17.662 service list size 2 
+2023-08-17 10:49:27.674 service list size 2 
+2023-08-17 10:49:37.689 service list size 2 
+2023-08-17 10:49:47.702 service list size 2 
+2023-08-17 10:49:57.712 service list size 2 
+2023-08-17 10:50:07.727 service list size 2 
+2023-08-17 10:50:17.747 service list size 2 
+2023-08-17 10:50:27.764 service list size 2 
+2023-08-17 10:50:37.778 service list size 2 
+2023-08-17 10:50:47.789 service list size 2 
+2023-08-17 10:50:57.799 service list size 2 
+2023-08-17 10:51:07.810 service list size 2 
+2023-08-17 10:51:17.822 service list size 2 
+2023-08-17 10:51:27.832 service list size 2 
+2023-08-17 10:51:37.841 service list size 2 
+2023-08-17 10:51:47.850 service list size 2 
+2023-08-17 10:51:57.860 service list size 2 
+2023-08-17 10:52:07.870 service list size 2 
+2023-08-17 10:52:17.879 service list size 2 
+2023-08-17 10:52:27.889 service list size 2 
+2023-08-17 10:52:37.902 service list size 2 
+2023-08-17 10:52:47.911 service list size 2 
+2023-08-17 10:52:57.919 service list size 2 
+2023-08-17 10:53:07.990 service list size 2 
+2023-08-17 10:53:18.000 service list size 2 
+2023-08-17 10:53:28.012 service list size 2 
+2023-08-17 10:53:38.024 service list size 2 
+2023-08-17 10:53:48.035 service list size 2 
+2023-08-17 10:53:58.043 service list size 2 
+2023-08-17 10:54:08.051 service list size 2 
+2023-08-17 10:54:18.058 service list size 2 
+2023-08-17 10:54:28.073 service list size 2 
+2023-08-17 10:54:38.093 service list size 2 
+2023-08-17 10:54:48.103 service list size 2 
+2023-08-17 10:54:58.116 service list size 2 
+2023-08-17 10:55:08.126 service list size 2 
+2023-08-17 10:55:18.134 service list size 2 
+2023-08-17 10:55:28.142 service list size 2 
+2023-08-17 10:55:38.149 service list size 2 
+2023-08-17 10:55:48.159 service list size 2 
+2023-08-17 10:55:58.168 service list size 2 
+2023-08-17 10:56:08.176 service list size 2 
+2023-08-17 10:56:18.184 service list size 2 
+2023-08-17 10:56:28.193 service list size 2 
+2023-08-17 10:56:38.200 service list size 2 
+2023-08-17 10:56:48.209 service list size 2 
+2023-08-17 10:56:58.217 service list size 2 
+2023-08-17 10:57:08.227 service list size 2 
+2023-08-17 10:57:18.235 service list size 2 
+2023-08-17 10:57:28.243 service list size 2 
+2023-08-17 10:57:38.251 service list size 2 
+2023-08-17 10:57:48.260 service list size 2 
+2023-08-17 10:57:58.267 service list size 2 
+2023-08-17 10:58:08.278 service list size 2 
+2023-08-17 10:58:18.287 service list size 2 
+2023-08-17 10:58:28.295 service list size 2 
+2023-08-17 10:58:38.303 service list size 2 
+2023-08-17 10:58:48.311 service list size 2 
+2023-08-17 10:58:58.319 service list size 2 
+2023-08-17 10:59:08.332 service list size 2 
+2023-08-17 10:59:18.344 service list size 2 
+2023-08-17 10:59:28.354 service list size 2 
+2023-08-17 10:59:38.361 service list size 2 
+2023-08-17 10:59:41.163 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间",
+                "globalEnable":false
+            }]
+        }
+    ]
+} 
+2023-08-17 10:59:48.370 service list size 2 
+2023-08-17 10:59:57.759 [NotifyCenter] Start destroying Publisher 
+2023-08-17 10:59:57.759 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 10:59:57.760 [NotifyCenter] Destruction of the end 
+2023-08-17 10:59:57.760 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 11:00:04.915 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 11:00:04.918 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 11:00:08.979 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间",
+                "globalEnable":false
+            }]
+        }
+    ]
+} 
+2023-08-17 11:00:09.138 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 11:00:09.145 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 11:00:09.148 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 11:00:09.728 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x8b6f3426]' 
+2023-08-17 11:00:09.739 server startup on port 5555 
+2023-08-17 11:00:09.740 api gateway started! 
+2023-08-17 11:00:09.759 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 11:00:09.759 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 11:00:09.772 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 11:00:09.772 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 11:00:09.897 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 11:00:09.898 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 11:00:10.459 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 11:00:10.468 service list size 2 
+2023-08-17 11:00:10.511 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692239419299, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692239420924, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 11:00:10.513 subscribe backend-http-server dev 
+2023-08-17 11:00:10.527 refresh service and instance: api-gateway [] 
+2023-08-17 11:00:10.528 subscribe api-gateway dev 
+2023-08-17 11:00:10.939 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692241210386, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 11:00:20.541 service list size 2 
+2023-08-17 11:00:30.552 service list size 2 
+2023-08-17 11:00:40.561 service list size 2 
+2023-08-17 11:00:44.155 [NotifyCenter] Start destroying Publisher 
+2023-08-17 11:00:44.155 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 11:00:44.155 [NotifyCenter] Destruction of the end 
+2023-08-17 11:00:44.156 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 12:01:41.382 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 12:01:41.383 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 12:01:43.984 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间",
+                "globalEnable":false
+            }]
+        }
+    ]
+} 
+2023-08-17 12:01:44.179 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 12:01:44.188 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 12:01:44.190 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 12:01:45.246 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xfe644e7d]' 
+2023-08-17 12:01:45.307 server startup on port 5555 
+2023-08-17 12:01:45.309 api gateway started! 
+2023-08-17 12:01:45.328 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 12:01:45.328 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 12:01:45.380 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 12:01:45.382 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 12:01:45.540 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 12:01:45.541 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 12:01:48.091 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 12:01:48.113 service list size 1 
+2023-08-17 12:01:48.191 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692244907778, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 12:01:48.193 subscribe api-gateway dev 
+2023-08-17 12:01:58.208 service list size 2 
+2023-08-17 12:01:58.225 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692244910527, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692244912311, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 12:01:58.226 subscribe backend-http-server dev 
+2023-08-17 12:02:08.233 service list size 2 
+2023-08-17 12:02:18.239 service list size 2 
+2023-08-17 12:02:28.247 service list size 2 
+2023-08-17 12:02:38.254 service list size 2 
+2023-08-17 12:02:48.263 service list size 2 
+2023-08-17 12:02:58.277 service list size 2 
+2023-08-17 12:03:08.286 service list size 2 
+2023-08-17 12:03:18.295 service list size 2 
+2023-08-17 12:03:28.304 service list size 2 
+2023-08-17 12:03:38.310 service list size 2 
+2023-08-17 12:03:48.317 service list size 2 
+2023-08-17 12:03:58.324 service list size 2 
+2023-08-17 12:04:08.330 service list size 2 
+2023-08-17 12:04:18.338 service list size 2 
+2023-08-17 12:04:28.345 service list size 2 
+2023-08-17 12:04:38.352 service list size 2 
+2023-08-17 12:04:48.370 service list size 2 
+2023-08-17 12:04:58.377 service list size 2 
+2023-08-17 12:05:08.384 service list size 2 
+2023-08-17 12:05:18.392 service list size 2 
+2023-08-17 12:05:28.399 service list size 2 
+2023-08-17 12:05:38.405 service list size 2 
+2023-08-17 12:05:48.411 service list size 2 
+2023-08-17 12:05:58.418 service list size 2 
+2023-08-17 12:06:08.426 service list size 2 
+2023-08-17 12:06:18.431 service list size 2 
+2023-08-17 12:06:28.448 service list size 2 
+2023-08-17 12:06:38.455 service list size 2 
+2023-08-17 12:06:48.470 service list size 2 
+2023-08-17 12:06:58.481 service list size 2 
+2023-08-17 12:07:08.487 service list size 2 
+2023-08-17 12:07:18.505 service list size 2 
+2023-08-17 12:07:28.510 service list size 2 
+2023-08-17 12:07:38.516 service list size 2 
+2023-08-17 12:07:48.522 service list size 2 
+2023-08-17 12:07:58.528 service list size 2 
+2023-08-17 12:08:08.536 service list size 2 
+2023-08-17 12:08:18.541 service list size 2 
+2023-08-17 12:08:28.546 service list size 2 
+2023-08-17 12:08:38.565 service list size 2 
+2023-08-17 12:08:48.584 service list size 2 
+2023-08-17 12:08:58.590 service list size 2 
+2023-08-17 12:09:08.599 service list size 2 
+2023-08-17 12:09:18.611 service list size 2 
+2023-08-17 12:09:28.618 service list size 2 
+2023-08-17 12:09:38.625 service list size 2 
+2023-08-17 12:09:48.632 service list size 2 
+2023-08-17 12:09:58.638 service list size 2 
+2023-08-17 12:10:08.645 service list size 2 
+2023-08-17 12:10:18.653 service list size 2 
+2023-08-17 12:10:28.660 service list size 2 
+2023-08-17 12:10:38.665 service list size 2 
+2023-08-17 12:10:48.670 service list size 2 
+2023-08-17 12:10:58.691 service list size 2 
+2023-08-17 12:11:08.698 service list size 2 
+2023-08-17 12:11:18.714 service list size 2 
+2023-08-17 12:11:28.720 service list size 2 
+2023-08-17 12:11:38.726 service list size 2 
+2023-08-17 12:11:48.732 service list size 2 
+2023-08-17 12:11:58.738 service list size 2 
+2023-08-17 12:12:08.750 service list size 2 
+2023-08-17 12:12:18.757 service list size 2 
+2023-08-17 12:12:28.764 service list size 2 
+2023-08-17 12:12:38.771 service list size 2 
+2023-08-17 12:12:48.777 service list size 2 
+2023-08-17 12:12:58.782 service list size 2 
+2023-08-17 12:13:08.796 service list size 2 
+2023-08-17 12:13:18.804 service list size 2 
+2023-08-17 12:13:28.811 service list size 2 
+2023-08-17 12:13:38.817 service list size 2 
+2023-08-17 12:13:48.829 service list size 2 
+2023-08-17 12:13:58.837 service list size 2 
+2023-08-17 12:14:08.842 service list size 2 
+2023-08-17 12:14:18.848 service list size 2 
+2023-08-17 12:14:28.866 service list size 2 
+2023-08-17 12:14:38.881 service list size 2 
+2023-08-17 12:14:48.897 service list size 2 
+2023-08-17 12:14:58.901 service list size 2 
+2023-08-17 12:15:08.906 service list size 2 
+2023-08-17 12:15:18.912 service list size 2 
+2023-08-17 12:15:28.918 service list size 2 
+2023-08-17 12:15:38.925 service list size 2 
+2023-08-17 12:15:48.929 service list size 2 
+2023-08-17 12:15:58.934 service list size 2 
+2023-08-17 12:16:08.943 service list size 2 
+2023-08-17 12:16:18.948 service list size 2 
+2023-08-17 12:16:28.953 service list size 2 
+2023-08-17 12:16:38.959 service list size 2 
+2023-08-17 12:16:48.965 service list size 2 
+2023-08-17 12:16:58.971 service list size 2 
+2023-08-17 12:17:08.979 service list size 2 
+2023-08-17 12:17:18.984 service list size 2 
+2023-08-17 12:17:28.990 service list size 2 
+2023-08-17 12:17:38.996 service list size 2 
+2023-08-17 12:17:49.003 service list size 2 
+2023-08-17 12:17:59.009 service list size 2 
+2023-08-17 12:18:09.014 service list size 2 
+2023-08-17 12:18:19.019 service list size 2 
+2023-08-17 12:18:29.024 service list size 2 
+2023-08-17 12:18:39.030 service list size 2 
+2023-08-17 12:18:49.048 service list size 2 
+2023-08-17 12:18:59.054 service list size 2 
+2023-08-17 12:19:09.060 service list size 2 
+2023-08-17 12:19:19.066 service list size 2 
+2023-08-17 12:19:29.072 service list size 2 
+2023-08-17 12:19:39.078 service list size 2 
+2023-08-17 12:19:49.084 service list size 2 
+2023-08-17 12:19:59.089 service list size 2 
+2023-08-17 12:20:09.097 service list size 2 
+2023-08-17 12:20:19.115 service list size 2 
+2023-08-17 12:20:29.138 service list size 2 
+2023-08-17 12:20:39.145 service list size 2 
+2023-08-17 12:20:49.153 service list size 2 
+2023-08-17 12:20:59.162 service list size 2 
+2023-08-17 12:21:09.176 service list size 2 
+2023-08-17 12:21:19.181 service list size 2 
+2023-08-17 12:21:29.195 service list size 2 
+2023-08-17 12:21:39.203 service list size 2 
+2023-08-17 12:21:49.208 service list size 2 
+2023-08-17 12:21:59.213 service list size 2 
+2023-08-17 12:22:09.219 service list size 2 
+2023-08-17 12:22:19.224 service list size 2 
+2023-08-17 12:22:29.236 service list size 2 
+2023-08-17 12:22:39.241 service list size 2 
+2023-08-17 12:22:49.247 service list size 2 
+2023-08-17 12:22:59.254 service list size 2 
+2023-08-17 12:23:09.259 service list size 2 
+2023-08-17 12:23:19.264 service list size 2 
+2023-08-17 12:23:29.270 service list size 2 
+2023-08-17 12:23:39.275 service list size 2 
+2023-08-17 12:23:49.291 service list size 2 
+2023-08-17 12:23:59.296 service list size 2 
+2023-08-17 12:24:09.315 service list size 2 
+2023-08-17 12:24:19.319 service list size 2 
+2023-08-17 12:24:29.326 service list size 2 
+2023-08-17 12:24:39.330 service list size 2 
+2023-08-17 12:24:49.335 service list size 2 
+2023-08-17 12:24:59.340 service list size 2 
+2023-08-17 12:25:09.345 service list size 2 
+2023-08-17 12:25:19.350 service list size 2 
+2023-08-17 12:25:29.363 service list size 2 
+2023-08-17 12:25:39.369 service list size 2 
+2023-08-17 12:25:49.374 service list size 2 
+2023-08-17 12:25:59.378 service list size 2 
+2023-08-17 12:26:09.382 service list size 2 
+2023-08-17 12:26:19.387 service list size 2 
+2023-08-17 12:26:29.404 service list size 2 
+2023-08-17 12:26:39.409 service list size 2 
+2023-08-17 12:26:49.414 service list size 2 
+2023-08-17 12:26:59.427 service list size 2 
+2023-08-17 12:27:09.443 service list size 2 
+2023-08-17 12:27:19.447 service list size 2 
+2023-08-17 12:27:29.452 service list size 2 
+2023-08-17 12:27:39.467 service list size 2 
+2023-08-17 12:27:49.472 service list size 2 
+2023-08-17 12:27:59.487 service list size 2 
+2023-08-17 12:28:09.492 service list size 2 
+2023-08-17 12:28:19.508 service list size 2 
+2023-08-17 12:28:29.513 service list size 2 
+2023-08-17 12:28:39.516 service list size 2 
+2023-08-17 12:28:49.522 service list size 2 
+2023-08-17 12:28:59.528 service list size 2 
+2023-08-17 12:29:09.535 service list size 2 
+2023-08-17 12:29:19.543 service list size 2 
+2023-08-17 12:29:29.550 service list size 2 
+2023-08-17 12:29:39.556 service list size 2 
+2023-08-17 12:29:49.562 service list size 2 
+2023-08-17 12:29:59.566 service list size 2 
+2023-08-17 12:30:09.571 service list size 2 
+2023-08-17 12:30:19.577 service list size 2 
+2023-08-17 12:30:29.581 service list size 2 
+2023-08-17 12:30:39.586 service list size 2 
+2023-08-17 12:30:49.600 service list size 2 
+2023-08-17 12:30:59.605 service list size 2 
+2023-08-17 12:31:09.610 service list size 2 
+2023-08-17 12:31:19.615 service list size 2 
+2023-08-17 12:31:29.620 service list size 2 
+2023-08-17 12:31:39.626 service list size 2 
+2023-08-17 12:31:49.635 service list size 2 
+2023-08-17 12:31:59.641 service list size 2 
+2023-08-17 12:32:09.647 service list size 2 
+2023-08-17 12:32:19.651 service list size 2 
+2023-08-17 12:32:29.658 service list size 2 
+2023-08-17 12:32:39.664 service list size 2 
+2023-08-17 12:32:49.681 service list size 2 
+2023-08-17 12:32:59.685 service list size 2 
+2023-08-17 12:33:09.691 service list size 2 
+2023-08-17 12:33:19.696 service list size 2 
+2023-08-17 12:33:29.702 service list size 2 
+2023-08-17 12:33:39.708 service list size 2 
+2023-08-17 12:33:49.713 service list size 2 
+2023-08-17 12:33:59.720 service list size 2 
+2023-08-17 12:34:09.727 service list size 2 
+2023-08-17 12:34:19.743 service list size 2 
+2023-08-17 12:34:29.749 service list size 2 
+2023-08-17 12:34:39.756 service list size 2 
+2023-08-17 12:34:49.760 service list size 2 
+2023-08-17 12:34:59.765 service list size 2 
+2023-08-17 12:35:09.769 service list size 2 
+2023-08-17 12:35:19.774 service list size 2 
+2023-08-17 12:35:29.778 service list size 2 
+2023-08-17 12:35:39.782 service list size 2 
+2023-08-17 12:35:49.788 service list size 2 
+2023-08-17 12:35:59.792 service list size 2 
+2023-08-17 12:36:09.798 service list size 2 
+2023-08-17 12:36:19.815 service list size 2 
+2023-08-17 12:36:29.834 service list size 2 
+2023-08-17 12:36:39.840 service list size 2 
+2023-08-17 12:36:49.845 service list size 2 
+2023-08-17 12:36:59.851 service list size 2 
+2023-08-17 12:37:09.861 service list size 2 
+2023-08-17 12:37:19.867 service list size 2 
+2023-08-17 12:37:29.871 service list size 2 
+2023-08-17 12:37:39.876 service list size 2 
+2023-08-17 12:37:49.880 service list size 2 
+2023-08-17 12:37:59.885 service list size 2 
+2023-08-17 12:38:09.891 service list size 2 
+2023-08-17 12:38:19.898 service list size 2 
+2023-08-17 12:38:29.912 service list size 2 
+2023-08-17 12:38:39.916 service list size 2 
+2023-08-17 12:38:49.922 service list size 2 
+2023-08-17 12:38:59.926 service list size 2 
+2023-08-17 12:39:09.931 service list size 2 
+2023-08-17 12:39:19.935 service list size 2 
+2023-08-17 12:39:29.940 service list size 2 
+2023-08-17 12:39:39.959 service list size 2 
+2023-08-17 12:39:49.976 service list size 2 
+2023-08-17 12:39:59.982 service list size 2 
+2023-08-17 12:40:09.987 service list size 2 
+2023-08-17 12:40:20.006 service list size 2 
+2023-08-17 12:40:30.023 service list size 2 
+2023-08-17 12:40:40.033 service list size 2 
+2023-08-17 12:40:50.037 service list size 2 
+2023-08-17 12:41:00.042 service list size 2 
+2023-08-17 12:41:10.048 service list size 2 
+2023-08-17 12:41:20.061 service list size 2 
+2023-08-17 12:41:30.074 service list size 2 
+2023-08-17 12:41:40.078 service list size 2 
+2023-08-17 12:41:50.084 service list size 2 
+2023-08-17 12:42:00.099 service list size 2 
+2023-08-17 12:42:10.102 service list size 2 
+2023-08-17 12:42:20.107 service list size 2 
+2023-08-17 12:42:30.121 service list size 2 
+2023-08-17 12:42:40.127 service list size 2 
+2023-08-17 12:42:50.134 service list size 2 
+2023-08-17 12:43:00.137 service list size 2 
+2023-08-17 12:43:10.144 service list size 2 
+2023-08-17 12:43:20.149 service list size 2 
+2023-08-17 12:43:30.153 service list size 2 
+2023-08-17 12:43:40.157 service list size 2 
+2023-08-17 12:43:50.163 service list size 2 
+2023-08-17 12:44:00.170 service list size 2 
+2023-08-17 12:44:10.185 service list size 2 
+2023-08-17 12:44:20.194 service list size 2 
+2023-08-17 12:44:30.199 service list size 2 
+2023-08-17 12:44:40.205 service list size 2 
+2023-08-17 12:44:50.210 service list size 2 
+2023-08-17 12:45:00.215 service list size 2 
+2023-08-17 12:45:10.220 service list size 2 
+2023-08-17 12:45:20.225 service list size 2 
+2023-08-17 12:45:30.230 service list size 2 
+2023-08-17 12:45:40.236 service list size 2 
+2023-08-17 12:45:50.242 service list size 2 
+2023-08-17 12:46:00.247 service list size 2 
+2023-08-17 12:46:10.252 service list size 2 
+2023-08-17 12:46:20.258 service list size 2 
+2023-08-17 12:46:30.263 service list size 2 
+2023-08-17 12:46:40.267 service list size 2 
+2023-08-17 12:46:50.271 service list size 2 
+2023-08-17 12:47:00.275 service list size 2 
+2023-08-17 12:47:10.279 service list size 2 
+2023-08-17 12:47:20.285 service list size 2 
+2023-08-17 12:47:30.290 service list size 2 
+2023-08-17 12:47:40.295 service list size 2 
+2023-08-17 12:47:50.302 service list size 2 
+2023-08-17 12:48:00.308 service list size 2 
+2023-08-17 12:48:10.328 service list size 2 
+2023-08-17 12:48:20.333 service list size 2 
+2023-08-17 12:48:30.339 service list size 2 
+2023-08-17 12:48:40.345 service list size 2 
+2023-08-17 12:48:50.351 service list size 2 
+2023-08-17 12:49:00.355 service list size 2 
+2023-08-17 12:49:10.362 service list size 2 
+2023-08-17 12:49:20.369 service list size 2 
+2023-08-17 12:49:30.374 service list size 2 
+2023-08-17 12:49:40.378 service list size 2 
+2023-08-17 12:49:50.392 service list size 2 
+2023-08-17 12:50:00.398 service list size 2 
+2023-08-17 12:50:10.402 service list size 2 
+2023-08-17 12:50:20.407 service list size 2 
+2023-08-17 12:50:30.412 service list size 2 
+2023-08-17 12:50:40.416 service list size 2 
+2023-08-17 12:50:50.421 service list size 2 
+2023-08-17 12:51:00.427 service list size 2 
+2023-08-17 12:51:10.433 service list size 2 
+2023-08-17 12:51:20.437 service list size 2 
+2023-08-17 12:51:30.441 service list size 2 
+2023-08-17 12:51:40.457 service list size 2 
+2023-08-17 12:51:50.460 service list size 2 
+2023-08-17 12:52:00.466 service list size 2 
+2023-08-17 12:52:10.472 service list size 2 
+2023-08-17 12:52:20.478 service list size 2 
+2023-08-17 12:52:30.487 service list size 2 
+2023-08-17 12:52:40.491 service list size 2 
+2023-08-17 12:52:50.496 service list size 2 
+2023-08-17 12:53:00.501 service list size 2 
+2023-08-17 12:53:10.506 service list size 2 
+2023-08-17 12:53:20.511 service list size 2 
+2023-08-17 12:53:30.514 service list size 2 
+2023-08-17 12:53:40.522 service list size 2 
+2023-08-17 12:53:50.527 service list size 2 
+2023-08-17 12:54:00.529 service list size 2 
+2023-08-17 12:54:10.534 service list size 2 
+2023-08-17 12:54:20.540 service list size 2 
+2023-08-17 12:54:30.545 service list size 2 
+2023-08-17 12:54:40.550 service list size 2 
+2023-08-17 12:54:50.555 service list size 2 
+2023-08-17 12:55:00.560 service list size 2 
+2023-08-17 12:55:10.565 service list size 2 
+2023-08-17 12:55:20.569 service list size 2 
+2023-08-17 12:55:30.573 service list size 2 
+2023-08-17 12:55:40.589 service list size 2 
+2023-08-17 12:55:50.594 service list size 2 
+2023-08-17 12:56:00.611 service list size 2 
+2023-08-17 12:56:10.616 service list size 2 
+2023-08-17 12:56:20.622 service list size 2 
+2023-08-17 12:56:30.626 service list size 2 
+2023-08-17 12:56:40.643 service list size 2 
+2023-08-17 12:56:50.656 service list size 2 
+2023-08-17 12:57:00.662 service list size 2 
+2023-08-17 12:57:10.666 service list size 2 
+2023-08-17 12:57:20.672 service list size 2 
+2023-08-17 12:57:30.676 service list size 2 
+2023-08-17 12:57:40.680 service list size 2 
+2023-08-17 12:57:50.684 service list size 2 
+2023-08-17 12:58:00.690 service list size 2 
+2023-08-17 12:58:10.696 service list size 2 
+2023-08-17 12:58:20.700 service list size 2 
+2023-08-17 12:58:30.706 service list size 2 
+2023-08-17 12:58:40.711 service list size 2 
+2023-08-17 12:58:50.715 service list size 2 
+2023-08-17 12:59:00.719 service list size 2 
+2023-08-17 12:59:10.741 service list size 2 
+2023-08-17 12:59:20.755 service list size 2 
+2023-08-17 12:59:30.769 service list size 2 
+2023-08-17 12:59:40.771 service list size 2 
+2023-08-17 12:59:50.776 service list size 2 
+2023-08-17 13:00:00.794 service list size 2 
+2023-08-17 13:00:10.800 service list size 2 
+2023-08-17 13:00:20.805 service list size 2 
+2023-08-17 13:00:30.825 service list size 2 
+2023-08-17 13:00:40.832 service list size 2 
+2023-08-17 13:00:50.837 service list size 2 
+2023-08-17 13:01:00.841 service list size 2 
+2023-08-17 13:01:10.845 service list size 2 
+2023-08-17 13:01:20.849 service list size 2 
+2023-08-17 13:01:30.855 service list size 2 
+2023-08-17 13:01:40.871 service list size 2 
+2023-08-17 13:01:50.877 service list size 2 
+2023-08-17 13:02:00.880 service list size 2 
+2023-08-17 13:02:10.885 service list size 2 
+2023-08-17 13:02:20.889 service list size 2 
+2023-08-17 13:02:30.905 service list size 2 
+2023-08-17 13:02:40.909 service list size 2 
+2023-08-17 13:02:50.914 service list size 2 
+2023-08-17 13:03:00.919 service list size 2 
+2023-08-17 13:03:10.923 service list size 2 
+2023-08-17 13:03:20.929 service list size 2 
+2023-08-17 13:03:30.946 service list size 2 
+2023-08-17 13:03:40.949 service list size 2 
+2023-08-17 13:03:50.953 service list size 2 
+2023-08-17 13:04:00.957 service list size 2 
+2023-08-17 13:04:10.962 service list size 2 
+2023-08-17 13:04:20.965 service list size 2 
+2023-08-17 13:04:30.970 service list size 2 
+2023-08-17 13:04:40.213 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 13:04:40.213 [NotifyCenter] Start destroying Publisher 
+2023-08-17 13:04:40.214 [NotifyCenter] Destruction of the end 
+2023-08-17 13:04:40.214 [HttpClientBeanHolder] Destruction of the end 
+2023-08-17 13:36:34.825 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 13:36:34.834 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 13:36:45.815 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间",
+                "globalEnable":false
+            }]
+        }
+    ]
+} 
+2023-08-17 13:36:46.851 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-17 13:36:47.082 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 13:36:47.112 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-17 13:36:48.768 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x0735cb2b]' 
+2023-08-17 13:36:48.813 server startup on port 5555 
+2023-08-17 13:36:48.829 api gateway started! 
+2023-08-17 13:36:48.889 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 13:36:48.889 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 13:36:48.937 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 13:36:48.937 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 13:36:49.112 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 13:36:49.113 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 13:36:50.695 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 13:36:50.736 service list size 1 
+2023-08-17 13:36:50.893 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692250610354, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 13:36:50.897 subscribe api-gateway dev 
+2023-08-17 13:37:00.932 service list size 2 
+2023-08-17 13:37:00.959 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692250615012, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692250618928, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 13:37:00.960 subscribe backend-http-server dev 
+2023-08-17 13:37:10.974 service list size 2 
+2023-08-17 13:37:20.987 service list size 2 
+2023-08-17 13:37:30.999 service list size 2 
+2023-08-17 13:37:41.009 service list size 2 
+2023-08-17 13:37:51.022 service list size 2 
+2023-08-17 13:38:01.033 service list size 2 
+2023-08-17 13:38:11.047 service list size 2 
+2023-08-17 13:38:21.057 service list size 2 
+2023-08-17 13:38:31.069 service list size 2 
+2023-08-17 13:38:41.080 service list size 2 
+2023-08-17 13:38:51.089 service list size 2 
+2023-08-17 13:39:01.100 service list size 2 
+2023-08-17 13:39:11.109 service list size 2 
+2023-08-17 13:39:21.120 service list size 2 
+2023-08-17 13:39:31.132 service list size 2 
+2023-08-17 13:39:41.146 service list size 2 
+2023-08-17 13:39:51.157 service list size 2 
+2023-08-17 13:40:01.166 service list size 2 
+2023-08-17 13:40:11.175 service list size 2 
+2023-08-17 13:40:21.184 service list size 2 
+2023-08-17 13:40:31.194 service list size 2 
+2023-08-17 13:40:41.208 service list size 2 
+2023-08-17 13:40:51.119 complete time out http://192.168.108.161:8083/http-server/ping 
+2023-08-17 13:40:51.217 service list size 2 
+2023-08-17 13:41:01.229 service list size 2 
+2023-08-17 13:41:11.238 service list size 2 
+2023-08-17 13:41:21.251 service list size 2 
+2023-08-17 13:41:31.294 service list size 2 
+2023-08-17 13:41:41.313 service list size 2 
+2023-08-17 13:41:51.330 service list size 2 
+2023-08-17 13:42:01.340 service list size 2 
+2023-08-17 13:42:11.349 service list size 2 
+2023-08-17 13:42:21.358 service list size 2 
+2023-08-17 13:42:31.368 service list size 2 
+2023-08-17 13:42:41.383 service list size 2 
+2023-08-17 13:42:51.394 service list size 2 
+2023-08-17 13:43:01.431 service list size 2 
+2023-08-17 13:43:05.513 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 15:15:41.679 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 15:15:41.682 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 15:15:45.606 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            },{
+                "id":"router_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":10
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            },
+            "hystrixConfigs":[{
+                "path":"/http-server/ping",
+                "threadCoreSize":2,
+                "timeoutInMilliseconds":1000,
+                "timeoutEnabled":true,
+                "slidingWindowDuration":30000,
+                "numberOfWindowSegments":10,
+                "requestThreshold":4,
+                "failureRateThreshold":50,
+                "circuitBreakerResetTime":30000,
+                "circuitBreakerEnabled":true,
+                "fallbackResponse":"熔断时间",
+                "globalEnable":false
+            }]
+        }
+    ]
+} 
+2023-08-17 15:15:46.198 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,150 
+2023-08-17 15:15:46.215 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-17 15:15:46.221 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,100 
+2023-08-17 15:15:48.200 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x8e23ebbb]' 
+2023-08-17 15:15:48.223 server startup on port 5555 
+2023-08-17 15:15:48.226 api gateway started! 
+2023-08-17 15:15:48.251 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 15:15:48.251 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 15:15:48.273 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 15:15:48.274 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 15:15:48.427 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-17 15:15:48.428 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-17 15:15:49.451 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@4301a39d 
+2023-08-17 15:15:49.471 service list size 1 
+2023-08-17 15:15:49.551 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692256549304, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-17 15:15:49.552 subscribe api-gateway dev 
+2023-08-17 15:15:59.594 service list size 1 
+2023-08-17 15:16:09.624 service list size 2 
+2023-08-17 15:16:09.657 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692256559876, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692256566164, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 15:16:09.658 subscribe backend-http-server dev 
+2023-08-17 15:16:11.800 refresh service and instance: backend-http-server:1.0.0 [] 
+2023-08-17 15:16:19.700 service list size 2 
+2023-08-17 15:16:24.119 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692256583373, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 15:16:28.605 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692256583373, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8084, registerTime=1692256587937, enable=true, ip=192.168.108.161, serviceInstanceId=192.168.108.161:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-17 15:16:29.731 service list size 2 
+2023-08-17 15:16:39.755 service list size 2 
+2023-08-17 15:16:49.769 service list size 2 
+2023-08-17 15:16:50.852 [NotifyCenter] Start destroying Publisher 
+2023-08-17 15:16:50.853 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-17 15:16:50.853 [NotifyCenter] Destruction of the end 
+2023-08-17 15:16:50.854 [HttpClientBeanHolder] Destruction of the end 

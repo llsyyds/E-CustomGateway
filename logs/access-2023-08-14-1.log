@@ -1,0 +1,459 @@
+2023-08-14 22:58:58.874 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:58:58.880 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:01.470 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            }
+        }
+    ]
+} 
+2023-08-14 22:59:01.636 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-14 22:59:01.646 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-14 22:59:01.650 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-14 22:59:02.434 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xfb32ec43]' 
+2023-08-14 22:59:02.451 server startup on port 5555 
+2023-08-14 22:59:02.452 api gateway started! 
+2023-08-14 22:59:02.466 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:59:02.466 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:02.480 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:59:02.480 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:03.113 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-14 22:59:03.132 service list size 1 
+2023-08-14 22:59:03.172 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692025143012, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-14 22:59:03.173 subscribe api-gateway dev 
+2023-08-14 22:59:13.193 service list size 1 
+2023-08-14 22:59:23.216 service list size 1 
+2023-08-14 22:59:25.784 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-14 22:59:25.784 [NotifyCenter] Start destroying Publisher 
+2023-08-14 22:59:25.785 [NotifyCenter] Destruction of the end 
+2023-08-14 22:59:25.786 [HttpClientBeanHolder] Destruction of the end 
+2023-08-14 22:59:31.485 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:59:31.487 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:35.682 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            }
+        }
+    ]
+} 
+2023-08-14 22:59:36.110 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-14 22:59:36.119 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-14 22:59:36.122 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-14 22:59:37.501 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xd5dd4e0a]' 
+2023-08-14 22:59:37.526 server startup on port 5555 
+2023-08-14 22:59:37.528 api gateway started! 
+2023-08-14 22:59:37.550 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:59:37.552 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:37.579 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 22:59:37.579 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 22:59:38.705 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-14 22:59:38.726 service list size 1 
+2023-08-14 22:59:38.777 refresh service and instance: api-gateway [] 
+2023-08-14 22:59:38.780 subscribe api-gateway dev 
+2023-08-14 22:59:39.357 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692025178541, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-14 22:59:48.804 service list size 1 
+2023-08-14 22:59:58.824 service list size 1 
+2023-08-14 23:00:08.866 service list size 1 
+2023-08-14 23:00:18.879 service list size 1 
+2023-08-14 23:00:28.891 service list size 1 
+2023-08-14 23:00:38.905 service list size 1 
+2023-08-14 23:00:48.916 service list size 1 
+2023-08-14 23:00:58.929 service list size 1 
+2023-08-14 23:01:08.940 service list size 1 
+2023-08-14 23:01:18.950 service list size 1 
+2023-08-14 23:01:28.961 service list size 1 
+2023-08-14 23:01:38.972 service list size 1 
+2023-08-14 23:01:48.994 service list size 1 
+2023-08-14 23:01:59.003 service list size 1 
+2023-08-14 23:02:09.012 service list size 1 
+2023-08-14 23:02:19.036 service list size 1 
+2023-08-14 23:02:29.045 service list size 1 
+2023-08-14 23:02:39.054 service list size 1 
+2023-08-14 23:02:49.064 service list size 1 
+2023-08-14 23:02:59.073 service list size 1 
+2023-08-14 23:03:09.081 service list size 1 
+2023-08-14 23:03:19.088 service list size 1 
+2023-08-14 23:03:29.097 service list size 1 
+2023-08-14 23:03:39.107 service list size 1 
+2023-08-14 23:03:49.116 service list size 1 
+2023-08-14 23:03:59.127 service list size 1 
+2023-08-14 23:04:09.135 service list size 1 
+2023-08-14 23:04:19.143 service list size 1 
+2023-08-14 23:04:29.152 service list size 1 
+2023-08-14 23:04:38.033 [HttpClientBeanHolder] Start destroying common HttpClient 
+2023-08-14 23:04:38.033 [NotifyCenter] Start destroying Publisher 
+2023-08-14 23:04:38.034 [HttpClientBeanHolder] Destruction of the end 
+2023-08-14 23:04:52.711 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 23:04:52.713 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 23:04:55.447 config from nacos: {
+    "rules":[
+        {
+            "id":"1",
+            "name":"test-1",
+            "protocol":"http",
+            "serviceId":"backend-http-server",
+            "prefix":"/user",
+            "paths":[
+                "/http-server/ping","/user/update"
+            ],
+            "filterConfigs":[{
+                "id":"load_balance_filter",
+                "config":{
+                    "load_balance":"RoundRobin"
+                }
+            },{
+                "id":"flow_ctl_filter"
+            }],
+            "flowCtlConfigs":[{
+                "type":"path",
+                "model":"distributed",
+                "value":"/http-server/ping",
+                "config":{
+                    "duration":40,
+                    "permits":3
+                }
+            }],
+            "retryConfig":{
+                "times":5
+            }
+        }
+    ]
+} 
+2023-08-14 23:04:55.618 load filter success:class com.lls.core.filter.loadbalance.LoadBalanceFilter,load_balance_filter,load_balance_filter,100 
+2023-08-14 23:04:55.628 load filter success:class com.lls.core.filter.router.RouterFilter,router_filter,router_filter,2147483647 
+2023-08-14 23:04:55.630 load filter success:class com.lls.core.filter.flowCtl.FlowCtlFilter,flow_ctl_filter,flow_ctl_filter,50 
+2023-08-14 23:04:56.204 Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x63539bf3]' 
+2023-08-14 23:04:56.216 server startup on port 5555 
+2023-08-14 23:04:56.218 api gateway started! 
+2023-08-14 23:04:56.232 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 23:04:56.232 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 23:04:56.245 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2023-08-14 23:04:56.245 [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2023-08-14 23:04:56.805 register com.lls.common.config.ServiceDefinition@5229e9cc com.lls.common.config.ServiceInstance@513d93de 
+2023-08-14 23:04:56.815 service list size 1 
+2023-08-14 23:04:56.850 refresh service and instance: api-gateway [] 
+2023-08-14 23:04:56.851 subscribe api-gateway dev 
+2023-08-14 23:04:57.282 refresh service and instance: api-gateway [{gray=false, port=5555, registerTime=1692025496716, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:5555, weight=null, version=null, uniqueId=null, tags=null}] 
+2023-08-14 23:05:06.867 service list size 1 
+2023-08-14 23:05:16.880 service list size 1 
+2023-08-14 23:05:26.895 service list size 1 
+2023-08-14 23:05:36.904 service list size 1 
+2023-08-14 23:05:46.912 service list size 1 
+2023-08-14 23:05:56.923 service list size 1 
+2023-08-14 23:06:06.939 service list size 1 
+2023-08-14 23:06:16.948 service list size 1 
+2023-08-14 23:06:18.007 process unkown error 
+java.lang.NullPointerException: Cannot invoke "com.lls.common.config.ServiceDefinition.getServiceId()" because "serviceDefinition" is null
+	at com.lls.core.helper.RequestHelper.doContext(RequestHelper.java:39) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:30) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-14 23:06:19.934 process unkown error 
+java.lang.NullPointerException: Cannot invoke "com.lls.common.config.ServiceDefinition.getServiceId()" because "serviceDefinition" is null
+	at com.lls.core.helper.RequestHelper.doContext(RequestHelper.java:39) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:30) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-14 23:06:26.956 service list size 1 
+2023-08-14 23:06:36.963 service list size 1 
+2023-08-14 23:06:46.970 service list size 1 
+2023-08-14 23:06:56.979 service list size 1 
+2023-08-14 23:07:06.986 service list size 1 
+2023-08-14 23:07:16.992 service list size 1 
+2023-08-14 23:07:27.001 service list size 1 
+2023-08-14 23:07:37.024 service list size 1 
+2023-08-14 23:07:47.032 service list size 1 
+2023-08-14 23:07:57.041 service list size 1 
+2023-08-14 23:08:07.058 service list size 1 
+2023-08-14 23:08:17.067 service list size 1 
+2023-08-14 23:08:22.456 process unkown error 
+java.lang.NullPointerException: Cannot invoke "com.lls.common.config.ServiceDefinition.getServiceId()" because "serviceDefinition" is null
+	at com.lls.core.helper.RequestHelper.doContext(RequestHelper.java:39) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:30) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-14 23:08:27.073 service list size 1 
+2023-08-14 23:08:37.081 service list size 1 
+2023-08-14 23:08:47.088 service list size 1 
+2023-08-14 23:08:57.108 service list size 1 
+2023-08-14 23:09:07.117 service list size 1 
+2023-08-14 23:09:17.137 service list size 1 
+2023-08-14 23:09:27.181 service list size 1 
+2023-08-14 23:09:37.188 service list size 1 
+2023-08-14 23:09:47.208 service list size 1 
+2023-08-14 23:09:57.219 service list size 1 
+2023-08-14 23:10:07.233 service list size 1 
+2023-08-14 23:10:17.241 service list size 1 
+2023-08-14 23:10:27.249 service list size 1 
+2023-08-14 23:10:37.265 service list size 1 
+2023-08-14 23:10:47.280 service list size 1 
+2023-08-14 23:10:57.288 service list size 1 
+2023-08-14 23:11:07.305 service list size 1 
+2023-08-14 23:11:17.314 service list size 1 
+2023-08-14 23:11:27.356 service list size 1 
+2023-08-14 23:11:37.376 service list size 1 
+2023-08-14 23:11:47.398 service list size 2 
+2023-08-14 23:11:47.413 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692025903427, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-14 23:11:47.413 subscribe backend-http-server dev 
+2023-08-14 23:11:57.418 service list size 2 
+2023-08-14 23:12:05.040 refresh service and instance: backend-http-server:1.0.0 [] 
+2023-08-14 23:12:07.452 service list size 2 
+2023-08-14 23:12:13.205 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8083, registerTime=1692025932545, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-14 23:12:17.490 service list size 2 
+2023-08-14 23:12:27.497 service list size 2 
+2023-08-14 23:12:37.505 service list size 2 
+2023-08-14 23:12:47.515 service list size 2 
+2023-08-14 23:12:57.526 service list size 2 
+2023-08-14 23:13:07.533 service list size 2 
+2023-08-14 23:13:17.540 service list size 2 
+2023-08-14 23:13:27.550 service list size 2 
+2023-08-14 23:13:37.567 service list size 2 
+2023-08-14 23:13:47.576 service list size 2 
+2023-08-14 23:13:49.177 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692026028530, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692025932545, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-14 23:13:57.582 service list size 2 
+2023-08-14 23:14:07.589 service list size 2 
+2023-08-14 23:14:17.596 service list size 2 
+2023-08-14 23:14:27.605 service list size 2 
+2023-08-14 23:14:37.612 service list size 2 
+2023-08-14 23:14:47.618 service list size 2 
+2023-08-14 23:14:57.624 service list size 2 
+2023-08-14 23:15:07.647 service list size 2 
+2023-08-14 23:15:09.607 refresh service and instance: backend-http-server:1.0.0 [{gray=false, port=8084, registerTime=1692026028530, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8084, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8085, registerTime=1692026109009, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8085, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}, {gray=false, port=8083, registerTime=1692025932545, enable=true, ip=192.168.43.29, serviceInstanceId=192.168.43.29:8083, weight=100, version=1.0.0, uniqueId=backend-http-server:1.0.0, tags=null}] 
+2023-08-14 23:15:17.662 service list size 2 
+2023-08-14 23:15:27.669 service list size 2 
+2023-08-14 23:15:30.913 执行过滤器发生异常,异常信息：您的请求过于频繁,请稍后重试 
+2023-08-14 23:15:30.913 process unkown error 
+java.lang.RuntimeException: 您的请求过于频繁,请稍后重试
+	at com.lls.core.filter.flowCtl.FlowCtlByPathRule.doFlowCtlFilter(FlowCtlByPathRule.java:76) ~[classes/:?]
+	at com.lls.core.filter.flowCtl.FlowCtlFilter.doFilter(FlowCtlFilter.java:42) ~[classes/:?]
+	at com.lls.core.filter.GatewayFilterChain.doFilter(GatewayFilterChain.java:35) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:32) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-14 23:15:32.031 执行过滤器发生异常,异常信息：您的请求过于频繁,请稍后重试 
+2023-08-14 23:15:32.032 process unkown error 
+java.lang.RuntimeException: 您的请求过于频繁,请稍后重试
+	at com.lls.core.filter.flowCtl.FlowCtlByPathRule.doFlowCtlFilter(FlowCtlByPathRule.java:76) ~[classes/:?]
+	at com.lls.core.filter.flowCtl.FlowCtlFilter.doFilter(FlowCtlFilter.java:42) ~[classes/:?]
+	at com.lls.core.filter.GatewayFilterChain.doFilter(GatewayFilterChain.java:35) ~[classes/:?]
+	at com.lls.core.netty.processor.NettyCoreProcessor.process(NettyCoreProcessor.java:32) [classes/:?]
+	at com.lls.core.netty.NettyHttpServerHandler.channelRead(NettyHttpServerHandler.java:23) [classes/:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.http.HttpServerExpectContinueHandler.channelRead(HttpServerExpectContinueHandler.java:95) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-14 23:15:37.676 service list size 2 
+2023-08-14 23:15:47.682 service list size 2 
+2023-08-14 23:15:57.687 service list size 2 
+2023-08-14 23:16:07.693 service list size 2 
+2023-08-14 23:16:17.699 service list size 2 
+2023-08-14 23:16:27.704 service list size 2 
+2023-08-14 23:16:32.864 [NotifyCenter] Start destroying Publisher 
+2023-08-14 23:16:32.865 [NotifyCenter] Destruction of the end 
+2023-08-14 23:16:32.865 [HttpClientBeanHolder] Start destroying common HttpClient 

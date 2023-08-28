@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO" schema="Log4J-V2.0.xsd" monitorInterval="600">
+    <!--这是一个使用 Log4j2 配置的 XML 格式的日志配置文件。该文件主要由三个部分组成：Properties、Appenders和Loggers-->
+
+    <!--日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL-->
+    <Properties>
+        <!-- 	配置日志文件输出目录,此处为项目根目录下的logs文件夹 -->
+        <Property name="LOG_HOME">logs</Property>
+
+        <!--下面两个定义了日志的输出格式：%d 表示日期和时间，%p 表示优先级（日志级别），%t 表示线程名，%c 表示类名，%m 表示应用提供的消息，%n 表示平台特定的行分隔符-->
+        <!--表示日志的格式将会是日期（到毫秒），然后是日志级别（占5个字符），然后是线程名（截取20个字符，不足的空格补齐），然后是类名（只取类名，不带包名，截取40个字符，不足的空格补齐），然后是日志消息，最后是行分隔符-->
+        <property name="patternLayout">%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%20.20t] %40.40c{1.} : %m%n</property>
+        <!--表示日志的格式将会是日期（到毫秒），然后是日志消息，最后是行分隔符-->
+        <property name="accessPatternLayout">%d{yyyy-MM-dd HH:mm:ss.SSS} %m %n</property>
+    </Properties>
+
+    <!--Appender用于控制日志信息如何输出（如输出到控制台、文件、数据库等）-->
+    <Appenders>
+        <!--输出日志到控制台-->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternLayout}"/>
+        </Console>
+
+        <!--两个配置，一个用于 gateway-core.log，另一个用于 access.log。它们配置的是将日志写入文件，并且文件会在达到一定大小（如500MB）或者一定时间（如每天）后自动滚动生成新的日志文件-->
+        <!--通用日志（RandomAccessFile），可能包含来自应用程序各个部分的详细日志信息，如错误，调试信息，操作信息等，有着更详细的上下文信息-->
+        <RollingRandomAccessFile name="RandomAccessFile" fileName="${LOG_HOME}/gateway-core.log" filePattern="${LOG_HOME}/gateway-core-%d{yyyy-MM-dd}-%i.log" >
+            <!--使用上述定义的patternLayout输出格式-->
+            <PatternLayout pattern="${patternLayout}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="500MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+        <!--访问日志（AccessLogFile），可能主要包含与HTTP请求相关的信息，如请求时间，URL，响应状态，客户端IP等，侧重于请求/响应的具体内容-->
+        <RollingRandomAccessFile name="AccessLogFile" fileName="${LOG_HOME}/access.log" filePattern="${LOG_HOME}/access-%d{yyyy-MM-dd}-%i.log" >
+            <!--使用上述定义的accessPatternLayout输出格式-->
+            <PatternLayout pattern="${accessPatternLayout}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="500MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <!--将前面定义的三个 Appender 都放入了异步处理，可以提高日志性能，减少日志的输出对程序性能的影响-->
+        <Async name="Async" shutdownTimeout="10000">
+            <Appender-Ref ref="CONSOLE"/>
+            <Appender-Ref ref="RandomAccessFile"/>
+            <Appender-Ref ref="AccessLogFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <!--一个指定的 Logger，处理指定包路径下（com.imooc.gateway.core.*）的日志，日志级别为 info，并且该日志会输出到 RandomAccessFile。-->
+        <Logger name="com.imooc.gateway.core.*" level="info" includeLocation="true">
+            <AppenderRef ref="RandomAccessFile"/>
+        </Logger>
+
+        <!--用于处理访问日志，日志级别为 info，并且该日志会输出到 AccessLogFile。-->
+        <Logger name="accessLog" level="info" includeLocation="false">
+            <AppenderRef ref="AccessLogFile"/>
+        </Logger>
+
+        <!--如果一个 Logger 没有显式的被配置，则会使用 Root Logger 的配置，将日志输出到 CONSOLE、accessLog和 RandomAccessFile。-->
+        <Root level="info">
+            <Appender-Ref ref="CONSOLE"/>
+            <Appender-Ref ref="AccessLogFile"/>
+            <Appender-Ref ref="RandomAccessFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
