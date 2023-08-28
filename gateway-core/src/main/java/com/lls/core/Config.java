@@ -51,7 +51,7 @@ public class Config {
     private int httpPooledConnectionIdleTimeout = 60 * 1000;
 
     //缓冲区类型
-    private String bufferType = "parallel";
+    private String bufferType = "parallel22";
 
     //缓冲区大小
     private int bufferSize = 1024 * 16;
